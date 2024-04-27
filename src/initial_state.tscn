@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://dh7qi35h7vkuq"]
+
+[ext_resource type="Script" path="res://state.gd" id="1_02wmx"]
+[ext_resource type="PackedScene" uid="uid://cli44osk288cl" path="res://device/bounds.tscn" id="2_ko13g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eygec"]
+
+[node name="InitialState" type="Node2D"]
+script = ExtResource("1_02wmx")
+
+[node name="Bounds" parent="." instance=ExtResource("2_ko13g")]
+
+[node name="Test" type="Node2D" parent="."]
+
+[node name="Label" type="RichTextLabel" parent="."]
+offset_left = 399.0
+offset_top = 227.0
+offset_right = 439.0
+offset_bottom = 267.0
+text = "Hei"
+
+[node name="Body" type="RigidBody2D" parent="."]
+position = Vector2(56, 48)
+
+[node name="Shape" type="CollisionShape2D" parent="Body"]
+shape = SubResource("RectangleShape2D_eygec")
+
+[node name="ColorRect" type="ColorRect" parent="Body"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2

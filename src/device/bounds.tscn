@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=3 uid="uid://cli44osk288cl"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fn4w5"]
+
+[node name="Bounds" type="Node2D"]
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(320, 640)
+
+[node name="Shape" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("WorldBoundaryShape2D_fn4w5")
+
+[node name="Color" type="ColorRect" parent="Floor"]
+offset_left = -319.0
+offset_right = 324.0
+offset_bottom = 40.0
+color = Color(0.122252, 0.122252, 0.122252, 1)
+
+[node name="LeftWall" type="StaticBody2D" parent="."]
+position = Vector2(0, 320)
+rotation = 1.5708
+
+[node name="Shape" type="CollisionShape2D" parent="LeftWall"]
+shape = SubResource("WorldBoundaryShape2D_fn4w5")
+
+[node name="Color" type="ColorRect" parent="LeftWall"]
+offset_left = -319.0
+offset_right = 324.0
+offset_bottom = 40.0
+color = Color(0.122252, 0.122252, 0.122252, 1)
+
+[node name="RightWall" type="StaticBody2D" parent="."]
+position = Vector2(640, 320)
+rotation = -1.5708
+
+[node name="Shape" type="CollisionShape2D" parent="RightWall"]
+shape = SubResource("WorldBoundaryShape2D_fn4w5")
+
+[node name="Color" type="ColorRect" parent="RightWall"]
+offset_left = -319.0
+offset_right = 324.0
+offset_bottom = 40.0
+color = Color(0.122252, 0.122252, 0.122252, 1)
+
+[node name="Ceiling" type="StaticBody2D" parent="."]
+position = Vector2(320, 0)
+rotation = 3.14159
+
+[node name="Shape" type="CollisionShape2D" parent="Ceiling"]
+shape = SubResource("WorldBoundaryShape2D_fn4w5")
+
+[node name="Color" type="ColorRect" parent="Ceiling"]
+offset_left = -319.0
+offset_right = 324.0
+offset_bottom = 40.0
+color = Color(0.122252, 0.122252, 0.122252, 1)
