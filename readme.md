@@ -1,9 +1,16 @@
 # recursive-devices
 
-Stipulation: AI opponent
- 
+The concept is to create devices that take input and produce output.
+
+- A device is a square, and each side has one port
+  - Within the device, physical laws apply
+  - A physical simulation runs to determine the effects a device has
+    - Which outputs and side effects there are
 
 ## TODO
+
+- Basic Device
+- Device Scene
 
 - Push release with `./push_release.sh`
 

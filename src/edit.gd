@@ -1,22 +1,22 @@
 class_name DeviceEdit
 extends Node2D
 
-var _deviceData: DeviceData = DeviceData.new()
+var _deviceConfig: DeviceConfig = DeviceConfig.new()
 
 @onready var _initialState: DeviceState = $InitialState
 
 func _ready() -> void:
 	_initialState.process_mode = Node.PROCESS_MODE_DISABLED
+	_deviceConfig.save(_initialState)
 
 func save():
-	_deviceData.save(_initialState)
+	_deviceConfig.save(_initialState)
 
-func loadState(deviceData: DeviceData):
-	_deviceData = deviceData
+func loadState(deviceData: DeviceConfig):
+	_deviceConfig = deviceData
 	_initialState.queue_free()
-	_initialState = _deviceData.load() # Sjekk at denne funker
+	_initialState = _deviceConfig.load()
 	add_child.call_deferred(_initialState)
-	pass
 
 func clear():
 	for child in _initialState.get_children():
@@ -27,8 +27,7 @@ func _on_save_pressed() -> void:
 	clear()
 
 func _on_load_pressed() -> void:
-	loadState(_deviceData)
-
+	loadState(_deviceConfig)
 
 func _on_play_pressed() -> void:
 	_initialState.process_mode = Node.PROCESS_MODE_INHERIT

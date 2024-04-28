@@ -1,39 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://dh7qi35h7vkuq"]
+[gd_scene load_steps=6 format=3 uid="uid://dh7qi35h7vkuq"]
 
 [ext_resource type="Script" path="res://state.gd" id="1_02wmx"]
-[ext_resource type="PackedScene" uid="uid://cli44osk288cl" path="res://device/bounds.tscn" id="2_ko13g"]
+[ext_resource type="Script" path="res://sample/sampleSpecs.gd" id="3_0bccl"]
+[ext_resource type="PackedScene" uid="uid://brq2p76noovtp" path="res://sample/sample.tscn" id="3_cxbrb"]
+[ext_resource type="PackedScene" uid="uid://dea14mcixfjcg" path="res://device/device.tscn" id="3_xfra3"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eygec"]
+[sub_resource type="Resource" id="Resource_wr270"]
+script = ExtResource("3_0bccl")
+shape = 1
+properties = Array[int]([])
 
 [node name="InitialState" type="Node2D"]
 script = ExtResource("1_02wmx")
 
-[node name="Bounds" parent="." instance=ExtResource("2_ko13g")]
+[node name="Samples" type="Node2D" parent="."]
 
-[node name="Test" type="Node2D" parent="."]
+[node name="Sample" parent="Samples" instance=ExtResource("3_cxbrb")]
+position = Vector2(322, 91)
+specs = SubResource("Resource_wr270")
 
-[node name="Label" type="RichTextLabel" parent="."]
-offset_left = 399.0
-offset_top = 227.0
-offset_right = 439.0
-offset_bottom = 267.0
-text = "Hei"
+[node name="Devices" type="Node2D" parent="."]
 
-[node name="Body" type="RigidBody2D" parent="."]
-position = Vector2(56, 48)
-
-[node name="Shape" type="CollisionShape2D" parent="Body"]
-shape = SubResource("RectangleShape2D_eygec")
-
-[node name="ColorRect" type="ColorRect" parent="Body"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 10.0
-offset_bottom = 10.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Device" parent="Devices" instance=ExtResource("3_xfra3")]
+position = Vector2(323, 155)

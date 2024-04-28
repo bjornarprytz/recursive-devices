@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cygcb3mtwe7rq"]
+
+[ext_resource type="Script" path="res://autoload/create.gd" id="1_ncey8"]
+
+[node name="Create" type="Node2D"]
+script = ExtResource("1_ncey8")

@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://brq2p76noovtp"]
+
+[ext_resource type="Script" path="res://sample/sample.gd" id="1_xf6yg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7qca7"]
+
+[node name="Sample" type="RigidBody2D"]
+script = ExtResource("1_xf6yg")
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7qca7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.205117, 0.205117, 0.205117, 1)
