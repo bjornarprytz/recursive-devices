@@ -3,12 +3,12 @@ extends Resource
 
 var initialState: PackedScene
 
-func save(state: DeviceState):
+func saveState(state: DeviceState):
 	var scene = PackedScene.new()
 	
 	scene.pack(state)
 	
 	initialState = scene
 
-func load() -> DeviceState:
+func loadState() -> Node2D:
 	return initialState.instantiate() as DeviceState

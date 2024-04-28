@@ -9,9 +9,6 @@ The concept is to create devices that take input and produce output.
 
 ## TODO
 
-- Basic Device
-- Device Scene
-
 - Push release with `./push_release.sh`
 
 ### Extra
