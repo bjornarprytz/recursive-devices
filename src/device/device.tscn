@@ -25,4 +25,18 @@ grow_vertical = 2
 [node name="Shape" type="CollisionShape2D" parent="Sensor"]
 shape = SubResource("RectangleShape2D_hvwj6")
 
+[node name="Button" type="TextureButton" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [connection signal="body_entered" from="Sensor" to="." method="_on_sensor_body_entered"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

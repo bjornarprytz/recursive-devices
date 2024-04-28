@@ -6,10 +6,10 @@ signal changed(state: DeviceState)
 var state: Node2D:
 	get:
 		return $State
-var devices: Node2D:
+var _devices: Node2D:
 	get:
 		return $State/Devices
-var samples: Node2D:
+var _samples: Node2D:
 	get:
 		return $State/Samples
 
@@ -18,3 +18,10 @@ func run():
 
 func pause():
 	state.process_mode = Node.PROCESS_MODE_DISABLED
+
+func get_devices() -> Array[Device]:
+	var devices = []
+	for device in _devices.get_children():
+		if device is Device:
+			devices.append(device)
+	return devices

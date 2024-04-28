@@ -8,6 +8,15 @@ var config: DeviceConfig = DeviceConfig.new()
 func _ready() -> void:
     config.saveState(_deviceState)
 
+    for d in _deviceState.get_devices():
+        d.clicked.connect(_onDeviceClicked)
+
+func _onDeviceClicked(device: Device) -> void:
+    # TODO: Find DeviceConfig based on a static lookup. So devices need and ID
+    # TODO: Load that device, after saving current
+    config.saveState(device.sta)
+    _loadState()
+
 func _loadState():
     if _deviceState != null:
         _deviceState.queue_free()
