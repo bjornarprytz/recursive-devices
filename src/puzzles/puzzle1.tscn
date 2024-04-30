@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://bl83mm55dudci"]
+
+[ext_resource type="PackedScene" uid="uid://dh7qi35h7vkuq" path="res://device/deviceState.tscn" id="1_64hji"]
+[ext_resource type="PackedScene" uid="uid://dea14mcixfjcg" path="res://device/device.tscn" id="1_hgfc2"]
+[ext_resource type="PackedScene" uid="uid://brq2p76noovtp" path="res://sample/sample.tscn" id="2_fygfv"]
+
+[node name="DeviceState" instance=ExtResource("1_64hji")]
+
+[node name="Sample" parent="State/Samples" index="0" instance=ExtResource("2_fygfv")]
+position = Vector2(215, 46)
+
+[node name="Device" parent="State/Devices" index="0" instance=ExtResource("1_hgfc2")]
+position = Vector2(214, 159)

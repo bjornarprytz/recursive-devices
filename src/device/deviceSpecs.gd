@@ -1,6 +1,8 @@
 class_name DeviceSpecs
 extends Resource
 
+## Matches the deviceId in the DeviceState
+var deviceId: int
 
 ## How long this device takes to produce output
 @export var duration: float

@@ -20,7 +20,7 @@ func pause():
 	state.process_mode = Node.PROCESS_MODE_DISABLED
 
 func get_devices() -> Array[Device]:
-	var devices = []
+	var devices : Array[Device] = []
 	for device in _devices.get_children():
 		if device is Device:
 			devices.append(device)

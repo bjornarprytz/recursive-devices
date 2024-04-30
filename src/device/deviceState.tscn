@@ -1,15 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dh7qi35h7vkuq"]
+[gd_scene load_steps=3 format=3 uid="uid://dh7qi35h7vkuq"]
 
 [ext_resource type="Script" path="res://device/deviceState.gd" id="1_vm80u"]
 [ext_resource type="PackedScene" uid="uid://cli44osk288cl" path="res://device/bounds.tscn" id="2_hxp8b"]
-[ext_resource type="PackedScene" uid="uid://brq2p76noovtp" path="res://sample/sample.tscn" id="3_bxp8c"]
-[ext_resource type="Script" path="res://sample/sampleSpecs.gd" id="4_vvc7h"]
-[ext_resource type="PackedScene" uid="uid://dea14mcixfjcg" path="res://device/device.tscn" id="5_mrpsr"]
-
-[sub_resource type="Resource" id="Resource_wr270"]
-script = ExtResource("4_vvc7h")
-shape = 1
-properties = Array[int]([])
 
 [node name="DeviceState" type="Node2D"]
 script = ExtResource("1_vm80u")
@@ -21,11 +13,4 @@ process_mode = 4
 
 [node name="Samples" type="Node2D" parent="State"]
 
-[node name="Sample" parent="State/Samples" instance=ExtResource("3_bxp8c")]
-position = Vector2(322, 91)
-specs = SubResource("Resource_wr270")
-
 [node name="Devices" type="Node2D" parent="State"]
-
-[node name="Device" parent="State/Devices" instance=ExtResource("5_mrpsr")]
-position = Vector2(323, 155)

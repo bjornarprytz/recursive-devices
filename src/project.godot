@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Create="*res://autoload/create.tscn"
 Events="*res://autoload/events.tscn"
+Meta="*res://autoload/meta.tscn"
 
 [display]
 
