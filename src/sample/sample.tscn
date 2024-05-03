@@ -1,25 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://brq2p76noovtp"]
+[gd_scene load_steps=5 format=3 uid="uid://brq2p76noovtp"]
 
 [ext_resource type="Script" path="res://sample/sample.gd" id="1_xf6yg"]
+[ext_resource type="Script" path="res://sample/sampleSpecs.gd" id="2_wgy3r"]
+[ext_resource type="PackedScene" uid="uid://c57sfkee815gl" path="res://polygon/polygon.tscn" id="2_xc6th"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7qca7"]
+[sub_resource type="Resource" id="Resource_o83g6"]
+script = ExtResource("2_wgy3r")
+shape = 1
+properties = Array[int]([])
 
 [node name="Sample" type="RigidBody2D"]
 script = ExtResource("1_xf6yg")
+specs = SubResource("Resource_o83g6")
 
-[node name="Shape" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_7qca7")
+[node name="Polygon" parent="." instance=ExtResource("2_xc6th")]
+polygon = PackedVector2Array(25, 0, 12.5, 21.6506, -12.5, 21.6506, -25, 3.06152e-15, -12.5, -21.6506, 12.5, -21.6506)
+n_sides = 4
 
-[node name="ColorRect" type="ColorRect" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 10.0
-offset_bottom = 10.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.205117, 0.205117, 0.205117, 1)
+[node name="Shape" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(25, 0, 12.5, 21.6506, -12.5, 21.6506, -25, 3.06152e-15, -12.5, -21.6506, 12.5, -21.6506)

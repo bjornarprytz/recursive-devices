@@ -14,3 +14,10 @@ func getDeviceConfig(deviceId: int) -> DeviceConfig:
 
 func insertDeviceConfig(deviceConfig: DeviceConfig):
 	_devices[deviceConfig.id] = deviceConfig
+
+func get_devices() -> Array[DeviceConfig]:
+	var devices : Array[DeviceConfig] = []
+	
+	devices.append_array(_devices.values())
+		
+	return devices

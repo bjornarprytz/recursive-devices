@@ -12,8 +12,19 @@ enum Properties {
 	Bouncy,
 }
 
-@export var shape: Shape = Shape.SQUARE
-@export var properties: Array[Properties] = []
+@export var shape: Shape = Shape.SQUARE:
+	set(value):
+		if value == shape:
+			return
+		shape = value
+		emit_changed()
+
+@export var properties: Array[Properties] = []:
+	set(value):
+		if value == properties:
+			return
+		properties = value
+		emit_changed()
 
 func equals(other: SampleSpecs) -> bool:
 	return shape == other.shape and properties == other.properties

@@ -4,8 +4,9 @@
 
 [node name="Main" type="Node2D"]
 
-[node name="Edit" parent="." instance=ExtResource("1_d6428")]
+[node name="Edit" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("1_d6428")]
 position = Vector2(71, 39)
+camera = NodePath("../Camera")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(640, 361)
