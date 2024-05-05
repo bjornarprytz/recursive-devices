@@ -5,30 +5,32 @@ extends Node2D
 @export var camera: Camera2D
 
 ## This is the puzzle you have to solve
-var configStack: Array[DeviceConfig] = []
+var configStack: Array[DeviceData] = []
 
-var _currentConfig: DeviceConfig:
+var _currentConfig: DeviceData:
 	get:
 		if configStack.size() == 0:
 			return null
 		return configStack[0]
 
-@onready var _deviceState: DeviceState = $DeviceState
+@onready var _deviceState: DeviceImplementation = $DeviceImplementation
 @onready var _deviceId: RichTextLabel = $DeviceId
 
 func _ready() -> void:
 	var puzzle = Meta.puzzles
-	var config = DeviceConfig.new(puzzle.instantiate() as DeviceState)
+	var config = DeviceData.new()
+	config.saveImplementation(puzzle.instantiate() as DeviceImplementation)
 	configStack.push_front(config)
 	_loadConfig()
 
 func _onDeviceClicked(device: Device) -> void:
 	_saveConfig(_currentConfig)
 
-	var nestedConfig: DeviceConfig = Meta.getDeviceConfig(device.specs.deviceId)
+	var nestedConfig: DeviceData = Meta.getDeviceConfig(device.data.id)
 
 	if nestedConfig == null: # TODO: This is just a temporary solution until we have a proper way to create new devices
-		nestedConfig = DeviceConfig.new(Meta.puzzles.instantiate() as DeviceState)
+		nestedConfig = DeviceData.new()
+		nestedConfig.saveImplementation(Meta.puzzles.instantiate() as DeviceImplementation)
 		Meta.insertDeviceConfig(nestedConfig)
 	
 	assert(nestedConfig != null, "No config found for device ID: " + str(device.specs.deviceId))
@@ -60,7 +62,7 @@ func _loadConfig() -> void:
 	for d in _deviceState.get_devices():
 		d.clicked.connect(_onDeviceClicked)
 
-func _saveConfig(config: DeviceConfig) -> void:
+func _saveConfig(config: DeviceData) -> void:
 	if config == null:
 		return
 
@@ -82,3 +84,6 @@ func _on_back_pressed() -> void:
 	await tween.finished
 	_loadConfig()
 	camera.zoom = Vector2(1, 1)
+
+func _on_input_select_item_selected(index: int) -> void:
+	_currentConfig

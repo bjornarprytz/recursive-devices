@@ -3,14 +3,9 @@ extends Node2D
 
 signal clicked(device: Device)
 
-var specs: DeviceSpecs = DeviceSpecs.new()
+var data: DeviceData
 
 var missing_inputs: Array[InputSpec]
-
-func _ready() -> void:
-	specs.inputs = [InputSpec.new([SampleSpecs.Shape.SQUARE])]
-	specs.output = [SampleSpecs.new()]
-	missing_inputs = specs.inputs.duplicate()
 
 func _on_sensor_body_entered(body: Node2D) -> void:
 	if body is Sample:

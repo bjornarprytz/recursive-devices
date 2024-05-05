@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cd3wir60p7con"]
+[gd_scene load_steps=4 format=3 uid="uid://cd3wir60p7con"]
 
 [ext_resource type="Script" path="res://device/deviceEdit.gd" id="1_8rhxp"]
 [ext_resource type="PackedScene" uid="uid://dh7qi35h7vkuq" path="res://device/deviceState.tscn" id="2_c8xwe"]
+
+[sub_resource type="Theme" id="Theme_v2wl8"]
 
 [node name="Edit" type="Node2D"]
 script = ExtResource("1_8rhxp")
@@ -32,5 +34,14 @@ fit_content = true
 context_menu_enabled = true
 selection_enabled = true
 
+[node name="InputSelect" type="OptionButton" parent="."]
+offset_right = 45.0
+offset_bottom = 20.0
+theme = SubResource("Theme_v2wl8")
+item_count = 1
+popup/item_0/text = "Input"
+popup/item_0/id = 0
+
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="item_selected" from="InputSelect" to="." method="_on_input_select_item_selected"]

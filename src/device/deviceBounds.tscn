@@ -1,8 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://cli44osk288cl"]
+[gd_scene load_steps=4 format=3 uid="uid://cli44osk288cl"]
+
+[ext_resource type="Script" path="res://device/deviceBounds.gd" id="1_n43we"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fn4w5"]
 
-[node name="Bounds" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ha73f"]
+size = Vector2(200, 27)
+
+[node name="DeviceBounds" type="Node2D"]
+script = ExtResource("1_n43we")
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(320, 640)
@@ -54,3 +60,15 @@ offset_left = -319.0
 offset_right = 324.0
 offset_bottom = 40.0
 color = Color(0.122252, 0.122252, 0.122252, 1)
+
+[node name="OutputSink" type="Area2D" parent="."]
+position = Vector2(320, 640)
+
+[node name="Shape" type="CollisionShape2D" parent="OutputSink"]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_ha73f")
+
+[node name="InputFaucet" type="Node2D" parent="."]
+position = Vector2(320, -88)
+
+[connection signal="body_entered" from="OutputSink" to="." method="_on_output_sink_body_entered"]

@@ -1,7 +1,7 @@
 class_name DeviceSpecs
 extends Resource
 
-## Matches the deviceId in the DeviceState
+## Matches the deviceId in the DeviceImplementation
 var deviceId: int
 
 ## How long this device takes to produce output

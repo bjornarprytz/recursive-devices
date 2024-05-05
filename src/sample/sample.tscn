@@ -14,8 +14,8 @@ script = ExtResource("1_xf6yg")
 specs = SubResource("Resource_o83g6")
 
 [node name="Polygon" parent="." instance=ExtResource("2_xc6th")]
-polygon = PackedVector2Array(25, 0, 12.5, 21.6506, -12.5, 21.6506, -25, 3.06152e-15, -12.5, -21.6506, 12.5, -21.6506)
+polygon = PackedVector2Array(25, 0, 1.53076e-15, 25, -25, 3.06152e-15, -4.59227e-15, -25)
 n_sides = 4
 
 [node name="Shape" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(25, 0, 12.5, 21.6506, -12.5, 21.6506, -25, 3.06152e-15, -12.5, -21.6506, 12.5, -21.6506)
+polygon = PackedVector2Array(25, 0, 1.53076e-15, 25, -25, 3.06152e-15, -4.59227e-15, -25)

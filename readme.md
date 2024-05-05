@@ -14,6 +14,28 @@ The concept is to create devices that take input and produce output.
 
 ## TODO
 
+- Figure out how to structure the device data
+  - It's currently spread out over mulitple data structures:
+    - DeviceConfig
+    - DeviceSpecs
+    - DeviceState
+    - InputSpec
+  - Essentially, I want each device to have one data structure that describes how to instantiate an abstracted version, and a detailed one, which contains the implementation
+  - The abstracted version:
+    - Resource Cost (to build)
+    - Duration
+    - Input/Output
+    - Device Manifest (which other devices are used)
+    - Version Number
+  - The detailed version
+    - Input/Output
+    - Initial Internal State
+    - From the properties above, Compute the abstracted version
+
+- Add content:
+  - Initial puzzle
+  - Some "default" implementations that cannot be edited
+
 - Edit devices
   - Set desired I/O (cannot be changed)
   - Add menu of elements to add

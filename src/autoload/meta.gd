@@ -6,17 +6,17 @@ extends Node
 
 var _devices: Dictionary = {}
 
-func getDeviceConfig(deviceId: int) -> DeviceConfig:
+func getDeviceConfig(deviceId: String) -> DeviceData:
 	if not _devices.has(deviceId):
 		return null
 
 	return _devices[deviceId]
 
-func insertDeviceConfig(deviceConfig: DeviceConfig):
+func insertDeviceConfig(deviceConfig: DeviceData):
 	_devices[deviceConfig.id] = deviceConfig
 
-func get_devices() -> Array[DeviceConfig]:
-	var devices : Array[DeviceConfig] = []
+func get_devices() -> Array[DeviceData]:
+	var devices: Array[DeviceData] = []
 	
 	devices.append_array(_devices.values())
 		
