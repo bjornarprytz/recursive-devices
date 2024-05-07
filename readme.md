@@ -12,18 +12,18 @@ The concept is to create devices that take input and produce output.
 - Gizmo
   - Take no physical space, but conducts electricity and adds control, through buttons, wiring, effectuators (gravity field) etc.
 
+- Generic Inputs:
+  - If a device only cares about shape, for instance, all other characteristics could be ignored, except they are highly relevant to the physics simulation.
+  - If I make it generic, then the simulation would have to make concrete versions with various characteristics.
+  - Shit, this is something to keep in mind. It might not be a huge problem, if there aren't too many permutations
+  - Another possibility: Don't spawn all permutatinos, but give the input _every_ characteristic. Maybe not a good idea.
+  - Could alternatively use a random sample of permutations.
+
 ## TODO
 
-- Create
-  - A few default implementations
-    - Change shape square -> circle
-    - Vice versa
-
-- I/O select
-
-- Add content:
-  - Initial puzzle
-  - Some "default" implementations that cannot be edited
+- A few default implementations
+  - Change shape square -> circle
+  - Vice versa
 
 - Edit devices
   - Set desired I/O (cannot be changed)
