@@ -1,12 +1,14 @@
 class_name MetaGame
 extends Node
 
-## These should be DeviceConfig scenes
-@export var puzzles: PackedScene
-
 var _devices: Dictionary = {}
 
-func getDeviceConfig(deviceId: String) -> DeviceData:
+func _ready() -> void:
+
+	var d1 = DeviceData.new()
+	d1.specs = DeviceSpecs.new()
+
+func getDeviceConfig(deviceId: int) -> DeviceData:
 	if not _devices.has(deviceId):
 		return null
 

@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://dh7qi35h7vkuq"]
 
-[ext_resource type="Script" path="res://device/deviceState.gd" id="1_vm80u"]
+[ext_resource type="Script" path="res://device/deviceImplementation.gd" id="1_vm80u"]
 [ext_resource type="PackedScene" uid="uid://cli44osk288cl" path="res://device/deviceBounds.tscn" id="2_hfta3"]
 
-[node name="DeviceState" type="Node2D"]
+[node name="DeviceImplementation" type="Node2D"]
 script = ExtResource("1_vm80u")
 
 [node name="DeviceBounds" parent="." instance=ExtResource("2_hfta3")]

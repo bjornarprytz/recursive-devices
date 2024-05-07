@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://cd3wir60p7con"]
 
 [ext_resource type="Script" path="res://device/deviceEdit.gd" id="1_8rhxp"]
-[ext_resource type="PackedScene" uid="uid://dh7qi35h7vkuq" path="res://device/deviceState.tscn" id="2_c8xwe"]
+[ext_resource type="PackedScene" uid="uid://dh7qi35h7vkuq" path="res://device/deviceImplementation.tscn" id="2_c8xwe"]
 
 [sub_resource type="Theme" id="Theme_v2wl8"]
 
 [node name="Edit" type="Node2D"]
 script = ExtResource("1_8rhxp")
 
-[node name="DeviceState" parent="." instance=ExtResource("2_c8xwe")]
+[node name="DeviceImplementation" parent="." instance=ExtResource("2_c8xwe")]
 
 [node name="Play" type="Button" parent="."]
 offset_left = 711.0
@@ -38,10 +38,15 @@ selection_enabled = true
 offset_right = 45.0
 offset_bottom = 20.0
 theme = SubResource("Theme_v2wl8")
-item_count = 1
-popup/item_0/text = "Input"
-popup/item_0/id = 0
+
+[node name="OutputSelect" type="OptionButton" parent="."]
+offset_left = 4.0
+offset_top = 605.0
+offset_right = 91.0
+offset_bottom = 636.0
+theme = SubResource("Theme_v2wl8")
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
 [connection signal="item_selected" from="InputSelect" to="." method="_on_input_select_item_selected"]
+[connection signal="item_selected" from="OutputSelect" to="." method="_on_output_select_item_selected"]
